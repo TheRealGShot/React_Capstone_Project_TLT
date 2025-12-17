@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 .nav{
     color:black;
     background-color:white;
@@ -7,7 +8,29 @@
     border-bottom: 4px solid #415B41;
     
     display:flex;
-    gap:400px;
+    justify-content: space-between;
+    align-items:center;
     
-    
+    font-family:Andada Pro;
+}
+.button{
+    background-color:white;
+}
+.p{
+    color:black;
+    font-size:30px;
+}
+.div1{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+.div2{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+.logo{
+    width:100px;
+    height:100px;
 }
