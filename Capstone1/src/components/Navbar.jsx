@@ -14,7 +14,7 @@ function Navbar(){
                 <BookSearch color="#000000" size={55}/>
             </button>
             <div className={styles.div2}>
-                <p className={styles.p}>Guest</p>
+                <p className={styles.p}>Guest User</p>
                 <CircleUserRound color="#000000" size={65}/>
             </div>
         </nav>
