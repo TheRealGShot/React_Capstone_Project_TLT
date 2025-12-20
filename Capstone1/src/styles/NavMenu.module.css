@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.navMenu{
+    width:100vw;
+    height:155px;
+    position:absolute;
+    background-color:white;
+    color:black;
+    margin-top:100px;
+    border-top: 4px solid #D5DDCD;
+    border-bottom: 4px solid #415B41;
+    font-family:Andada Pro;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.button{
+    display:flex;
+    align-items:center;
+    color:black;
+    font-size:25px;
+    background-color:white;
+}

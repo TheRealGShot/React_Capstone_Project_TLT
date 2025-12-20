@@ -12,13 +12,15 @@
     align-items:center;
     
     font-family:Andada Pro;
+    font-size:30px;
 }
 .button{
     background-color:white;
 }
-.p{
+.drop{
     color:black;
     font-size:30px;
+    background-color:white;
 }
 .div1{
     display:flex;
