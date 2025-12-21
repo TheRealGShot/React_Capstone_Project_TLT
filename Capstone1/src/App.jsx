@@ -9,6 +9,7 @@ import Drop from './components/Drop.jsx'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import SignUp from './pages/SignUp.jsx'
+import Settings from './pages/Settings.jsx'
 
 function App() {
   const [open1, setOpen1] = useState(false);
@@ -26,9 +27,11 @@ function App() {
         <Routes>
           <Route path='' element={<Home/>}></Route>
 
-          <Route path='login' element={<Login/>}></Route>
-          <Route path='signup' element={<SignUp/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/signup' element={<SignUp/>}></Route>
           
+          <Route path='/settings' element={<Settings/>}></Route>
+
         </Routes>
         </div>
       </BrowserRouter>
