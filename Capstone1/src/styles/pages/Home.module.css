@@ -55,4 +55,5 @@ h2{
     width:700px;
     height:480px;
     position:absolute;
+    z-index:0;
 }

@@ -5,7 +5,7 @@ import { BookUp } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { LogIn } from 'lucide-react';
 
-import { Settings } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function NavMenu(){
     return (
@@ -22,10 +22,12 @@ function NavMenu(){
                 <Search color="#000000" size={85}/>
                 <p>Browse</p>
             </button>
-            <button className={styles.button}>
-                <LogIn color="#000000" size={85}/>
-                <p>Log In</p>
-            </button>
+            <Link to ="/login">
+                <button className={styles.button}>
+                    <LogIn color="#000000" size={85}/>
+                    <p>Log In</p>
+                </button>
+            </Link>
         </div>
     );
 }

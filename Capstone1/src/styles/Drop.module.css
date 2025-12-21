@@ -17,6 +17,7 @@
     border-right: 1px solid #415B41;
     font-family:Andada Pro;
     font-size:30px;
+    z-index:100;
 }
 .p{
     text-decoration:none;
