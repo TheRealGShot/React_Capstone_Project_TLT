@@ -11,7 +11,7 @@ import Login from './pages/Login.jsx'
 import SignUp from './pages/SignUp.jsx'
 import ReturnBook from './pages/ReturnBook.jsx'
 import Settings from './pages/Settings.jsx'
-
+import AddBook from './pages/AddBook.jsx'
 
 function App() {
   const [open1, setOpen1] = useState(false);
@@ -21,8 +21,8 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar open1={open1} setOpen1={setOpen1} open2={open2} setOpen2={setOpen2}/>
-        {open1 && <NavMenu/>}
-        {open2 && <Drop/>}
+        {open1 && <NavMenu setOpen1={setOpen1}/>}
+        {open2 && <Drop setOpen2={setOpen2}/>} 
           
         
         <div className="div">
@@ -33,7 +33,8 @@ function App() {
           <Route path='/signup' element={<SignUp/>}></Route>
           
           <Route path='/returnBook' element={<ReturnBook/>}></Route>
-
+          <Route path='/addBook' element={<AddBook/>}></Route>
+          
           <Route path='/settings' element={<Settings/>}></Route>
 
         </Routes>

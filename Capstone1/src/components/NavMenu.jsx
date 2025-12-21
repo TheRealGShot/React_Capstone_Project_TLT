@@ -7,14 +7,16 @@ import { LogIn } from 'lucide-react';
 
 import { Link } from 'react-router-dom';
 
-function NavMenu(){
+function NavMenu({setOpen1}){
     return (
         <div className={styles.navMenu}>
+            <Link to='/addBook' onClick={() => setOpen1 && setOpen1(false)}>
             <button className={styles.button}>
                 <BookPlus color="#000000" size={85}/>
                 <p>Add A New Book</p>
             </button>
-            <Link to ="/returnBook">
+            </Link>
+            <Link to ="/returnBook" onClick={() => setOpen1 && setOpen1(false)}>
             <button className={styles.button}>
                 <BookUp color="#000000" size={85}/>
                 <p>Return A Book</p>
@@ -24,7 +26,7 @@ function NavMenu(){
                 <Search color="#000000" size={85}/>
                 <p>Browse</p>
             </button>
-            <Link to ="/login">
+            <Link to ="/login" onClick={() => setOpen1 && setOpen1(false)}>
                 <button className={styles.button}>
                     <LogIn color="#000000" size={85}/>
                     <p>Log In</p>

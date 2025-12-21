@@ -1,10 +1,10 @@
 import styles from '../styles/Drop.module.css';
 import { Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
-function Drop(){
+function Drop({setOpen2}){
     return(
         <div className={styles.div}>
-            <Link to ="/settings">
+            <Link to ="/settings" onClick={() => setOpen2 && setOpen2(false)}>
                 <div className={styles.box}>
                     <Settings color="#000000" size={55}/>
                     <p className={styles.p} >Settings</p>
