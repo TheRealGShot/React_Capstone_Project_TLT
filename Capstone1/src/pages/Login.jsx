@@ -16,13 +16,13 @@ function Login(){
                 /> <br/>
             	</form>
 				<p className={styles.p}>Don't have an account? 
-					<Link to=''>Sign Up</Link>
+					<Link to='/signup'>Sign Up</Link>
 				</p>
 				<button className={styles.button}>
 					Login
 				</button>
             </div>
-			
+
 		</div>
 	);
 }
