@@ -9,7 +9,9 @@ import Drop from './components/Drop.jsx'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import SignUp from './pages/SignUp.jsx'
+import ReturnBook from './pages/ReturnBook.jsx'
 import Settings from './pages/Settings.jsx'
+
 
 function App() {
   const [open1, setOpen1] = useState(false);
@@ -30,6 +32,8 @@ function App() {
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/signup' element={<SignUp/>}></Route>
           
+          <Route path='/returnBook' element={<ReturnBook/>}></Route>
+
           <Route path='/settings' element={<Settings/>}></Route>
 
         </Routes>

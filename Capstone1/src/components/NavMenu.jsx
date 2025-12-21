@@ -14,10 +14,12 @@ function NavMenu(){
                 <BookPlus color="#000000" size={85}/>
                 <p>Add A New Book</p>
             </button>
+            <Link to ="/returnBook">
             <button className={styles.button}>
                 <BookUp color="#000000" size={85}/>
                 <p>Return A Book</p>
             </button>
+            </Link>
             <button className={styles.button}>
                 <Search color="#000000" size={85}/>
                 <p>Browse</p>
