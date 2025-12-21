@@ -5,10 +5,13 @@ function ReturnBook(){
             <h1 className={styles.h1}>Returning A Book?</h1>
             <div className={styles.box}>
                 <div className={styles.left}>
-                    <div className={styles.box1}>
-                        <p className={styles.h2}>Book:</p>
-                        <p className={styles.h3}>BookTitle</p>
-                    </div>
+     
+                        <form className={styles.form3}>
+                        <label>Book Title</label> 
+                            <input type="text" name="book-title" placeholder='Enter Book Title' className={styles.input} 
+                        /> 
+                        </form>
+               
                     <form className={styles.form1}>
                         <label>Date of Return:</label> 
                             <input type="date" name="date-of-return" placeholder='Enter Date' className={styles.input} 
