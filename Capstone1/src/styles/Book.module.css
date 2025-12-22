@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.div1{
+    width:400px;
+    height:500px;
+    border-radius:150px;
+    font-family:Andada Pro;
+}
+.div2{
+    width:400px;
+    height:500px;
+    border-radius:150px;
+    position: absolute;
+    background-color: rgba(65, 91, 65, 0.7);
+    box-shadow: 0px 0px 18px black;
+    display:flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+}
+.img{
+    height:420px;
+    width:400px;
+    position:absolute;
+}
+.p{
+    font-size: 30px;
+    color:white;
+    opacity:100%;
+    margin-top:100px;
+}
+.button{
+    height:50px;
+    width:180px;
+    position:absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    color:black;
+    font-size:20px;
+    border-radius: 30px;
+    margin-top:350px;
+}
