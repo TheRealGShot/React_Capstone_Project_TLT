@@ -7,14 +7,42 @@ function Borrow() {
     const { id } = useParams();
     const navigate = useNavigate();
     const bookId = Number(id);
-    const book = books.find((b) => b.id === bookId);
+    const [book, setBook] = useState(null);
 
     const [borrowDate, setBorrowDate] = useState('');
     const [isBorrowed, setIsBorrowed] = useState(false);
+    const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('borrowedBooks') || '{}');
-        setIsBorrowed(Boolean(data[bookId]));
+        // Find book from fake API or user-added books
+        let foundBook = books.find((b) => b.id === bookId);
+        if (!foundBook) {
+            try {
+                const cu = JSON.parse(localStorage.getItem('currentUser')) || null;
+                const userKey = cu ? cu.email : 'guest';
+                const userAddedBooks = JSON.parse(localStorage.getItem('userAddedBooks') || '{}');
+                const userBooks = userAddedBooks[userKey] || [];
+                foundBook = userBooks.find((b) => b.id === bookId);
+            } catch (e) {}
+        }
+        setBook(foundBook || null);
+    }, [bookId]);
+
+    useEffect(() => {
+        try {
+            const cu = JSON.parse(localStorage.getItem('currentUser')) || null;
+            setCurrentUser(cu);
+            if (!cu) {
+                setIsBorrowed(false);
+                return;
+            }
+            const userKey = cu.email;
+            const data = JSON.parse(localStorage.getItem('borrowedBooks') || '{}');
+            setIsBorrowed(Boolean(data[userKey] && data[userKey][bookId]));
+        } catch (e) {
+            setCurrentUser(null);
+            setIsBorrowed(false);
+        }
     }, [bookId]);
 
     if (!book) {
@@ -33,12 +61,19 @@ function Borrow() {
     function handleBorrow(e) {
         e.preventDefault();
         if (isBorrowed) return;
+        if (!currentUser) {
+            alert('You must be logged in to borrow a book');
+            navigate('/login');
+            return;
+        }
         if (!borrowDate) {
             alert('Please enter date of borrow');
             return;
         }
+        const userKey = currentUser.email;
         const data = JSON.parse(localStorage.getItem('borrowedBooks') || '{}');
-        data[bookId] = { borrowDate };
+        if (!data[userKey]) data[userKey] = {};
+        data[userKey][bookId] = { borrowDate };
         localStorage.setItem('borrowedBooks', JSON.stringify(data));
         setIsBorrowed(true);
         navigate('/browse');

@@ -66,3 +66,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Dark mode applied per-user via data-theme="dark" on <html> */
+html[data-theme='dark'] {
+  background-color: #000000;
+  color: #ffffff;
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Keep these images/icons visually unchanged by cancelling the parent's inversion */
+html[data-theme='dark'] .no-invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+

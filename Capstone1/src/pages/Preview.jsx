@@ -1,10 +1,30 @@
 import styles from '../styles/pages/Preview.module.css';
 import { Link, useParams } from 'react-router-dom';
 import books from '../data/books';
+import { useState, useEffect } from 'react';
 
 function Preview(){
     const { id } = useParams();
-    const book = books.find((b) => b.id === Number(id));
+    const bookId = Number(id);
+    const [book, setBook] = useState(null);
+
+    useEffect(() => {
+        // First check fake API books
+        let foundBook = books.find((b) => b.id === bookId);
+        
+        // If not found, check user-added books
+        if (!foundBook) {
+            try {
+                const cu = JSON.parse(localStorage.getItem('currentUser')) || null;
+                const userKey = cu ? cu.email : 'guest';
+                const userAddedBooks = JSON.parse(localStorage.getItem('userAddedBooks') || '{}');
+                const userBooks = userAddedBooks[userKey] || [];
+                foundBook = userBooks.find((b) => b.id === bookId);
+            } catch (e) {}
+        }
+        
+        setBook(foundBook || null);
+    }, [bookId]);
 
     if (!book) {
         return (

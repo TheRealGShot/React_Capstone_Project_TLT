@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Book({ book }){
     return(
         <div className={styles.div1}>
-            <img className={styles.img} src={tree} alt={book?.title || "book"}/>
+            <img className={`${styles.img} no-invert`} src={tree} alt={book?.title || "book"}/>
             <div className={styles.div2}>
                 <p className={styles.p}>
                     {book?.title || 'Book Title'}

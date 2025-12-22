@@ -22,7 +22,7 @@ function NavMenu({setOpen1}){
                 <p>Return A Book</p>
             </button>
             </Link>
-            <Link to = '/browse'>
+            <Link to = '/browse' onClick={() => setOpen1 && setOpen1(false)}>
             <button className={styles.button}>
                 <Search color="#000000" size={85}/>
                 <p>Browse</p>

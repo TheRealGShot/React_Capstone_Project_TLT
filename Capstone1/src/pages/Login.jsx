@@ -50,8 +50,8 @@ function Login(){
 	return (
 		<div className={styles.desktop}>
 			<h1 className={styles.h1}>Welcome to The Learning Tree Library!</h1>
-            <div className={styles.box}>
-				<img className={styles.image} src={openBook} alt="Open Book"/>
+			<div className={styles.box}>
+				<img className={`${styles.image} no-invert`} src={openBook} alt="Open Book"/>
                 <form className={styles.form} onSubmit={handleLogin}>
 					<label>Email</label> 
 					<input 

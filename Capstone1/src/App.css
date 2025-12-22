@@ -11,3 +11,14 @@
   margin-top:100px;
   display:flex;
 }
+
+/* when dark theme is active, make the main app container also dark */
+html[data-theme='dark'] .div{
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ensure root text color follows theme */
+html[data-theme='dark'] #root{
+  color: #ffffff;
+}

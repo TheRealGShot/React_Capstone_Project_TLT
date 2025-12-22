@@ -1,18 +1,21 @@
 import bigTree from '../assets/bigTree.png'
 import styles from '../styles/pages/Home.module.css';
 import { Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 function Home(){
     return(
         <div className={styles.desktop}>
             <div className={styles.left}>
                 <h1 className={styles.h1}>Welcome To The Tree</h1>
-                <button className={styles.button}>
-                    <Search color="#ffffff" size={35}/>
-                    Explore Now!
-                </button>
+                <Link to="/browse">
+                  <button className={styles.button}>
+                      <Search color="#ffffff" size={35}/>
+                      Explore Now!
+                  </button>
+                </Link>
             </div>
             <div className={styles.right}>
-                <img className={styles.bigTree} src={bigTree}/>
+                <img className={`${styles.bigTree} no-invert`} src={bigTree}/>
                 <div className={styles.box}>
                     <h2 className={styles.h2}>The Learning Tree Library</h2>
                     <p className={styles.p}>
