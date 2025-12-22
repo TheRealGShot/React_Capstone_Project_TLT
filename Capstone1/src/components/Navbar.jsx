@@ -12,15 +12,25 @@ function Navbar({open1, setOpen1, open2, setOpen2}){
     const [userName, setUserName] = useState('Guest User');
 
     useEffect(() => {
-        const currentUser = localStorage.getItem('currentUser');
-        if (currentUser) {
-            try {
-                const user = JSON.parse(currentUser);
-                setUserName(`${user.fname} ${user.lname}`);
-            } catch (e) {
+        const updateUserName = () => {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                try {
+                    const user = JSON.parse(currentUser);
+                    setUserName(`${user.fname} ${user.lname}`);
+                } catch (e) {
+                    setUserName('Guest User');
+                }
+            } else {
                 setUserName('Guest User');
             }
-        }
+        };
+
+        // initial
+        updateUserName();
+        // listen for same-tab auth changes
+        window.addEventListener('authChange', updateUserName);
+        return () => window.removeEventListener('authChange', updateUserName);
     }, []);
 
     return(

@@ -38,6 +38,8 @@ function Login(){
 		if (user) {
 			// Store logged in user
 			localStorage.setItem('currentUser', JSON.stringify(user));
+			// notify other components in the same tab
+			window.dispatchEvent(new Event('authChange'));
 			// Navigate to home
 			navigate('/');
 		} else {
@@ -69,7 +71,7 @@ function Login(){
 						value={loginData.password}
 						onChange={handleChange}
 					/> <br/>
-					{error && <p style={{color: 'red', marginTop: '10px'}}>{error}</p>}
+					{error && <p style={{color: 'red', marginBottom: '60px', marginTop:'10px'}}>{error}</p>}
             	</form>
 				<p className={styles.p}>Don't have an account? 
 					<Link to='/signup'>Sign Up</Link>
