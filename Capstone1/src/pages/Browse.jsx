@@ -3,23 +3,15 @@ import Book from '../components/Book.jsx';
 import tree from '../assets/tree.png'
 import { Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import books from '../data/books';
 function Browse(){
     return(
         <div className={styles.desktop}>
             <h1 className={styles.h1}>Library</h1>
             <div className={styles.div}>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
-                <Book/>
+                {books.map((b) => (
+                    <Book key={b.id} book={b} />
+                ))}
 
                 <div className={styles.placeHolder}></div>
                 <div className={styles.div1}>

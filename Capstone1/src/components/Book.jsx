@@ -1,15 +1,15 @@
 import styles from '../styles/Book.module.css';
 import tree from '../assets/tree.png'
 import { Link } from 'react-router-dom';
-function Book(){
+function Book({ book }){
     return(
         <div className={styles.div1}>
-            <img className={styles.img} src={tree} alt="tree"/>
+            <img className={styles.img} src={tree} alt={book?.title || "book"}/>
             <div className={styles.div2}>
                 <p className={styles.p}>
-                    Book Title 
+                    {book?.title || 'Book Title'}
                 </p>
-                <Link to="/preview" className={styles.link}>
+                <Link to={`/preview/${book?.id ?? ''}`} className={styles.link}>
                 <button className={styles.button}>View More</button>
                 </Link>
             </div>
