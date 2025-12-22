@@ -14,7 +14,7 @@
 
 /* when dark theme is active, make the main app container also dark */
 html[data-theme='dark'] .div{
-  background-color: #ffffff;
+  background-color: #000000;
   color: #ffffff;
 }
 
