@@ -1,0 +1,73 @@
+.desktop{
+    font-family: 'Andada Pro', serif;
+    color:black;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100vw;
+    height:700px;
+
+
+}
+.box{
+    background-color:white;
+    box-shadow: 0px 0px 18px #D9D9D9;
+    border-radius:150px;
+    width:1140px;
+    height:500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.h1{
+    font-size:50px;
+    font-weight:700;
+}
+.fixBox1{
+    width:90%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.fixBox2{
+    margin-bottom:100px;
+}
+.p{
+    font-size:30px;
+}
+.switchOut{
+    width:300px;
+    height:75px;
+    background-color:white;
+    border-radius:30px;
+    border:1px solid black;
+    display:flex;
+    justify-content:start;
+    align-items:center;
+}
+.switchIn{
+    width:70px;
+    height:70px;
+    background-color:black;
+    border-radius:70px;
+    border:1px solid white;
+}
+.button1{
+    width:300px;
+    height:75px;
+    font-size:30px;
+    color:white;
+    background-color:#415B41;
+    border-radius:30px;
+    border:1px solid #233833;
+}
+.button2{
+    width:300px;
+    height:75px;
+    font-size:30px;
+    color:white;
+    background-color:red;
+    border-radius:30px;
+    border:1px solid #233833;
+}

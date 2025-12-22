@@ -6,8 +6,23 @@ import logo from '../assets/logo.png'
 import { ChevronDown } from 'lucide-react';
 import { ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function Navbar({open1, setOpen1, open2, setOpen2}){
+    const [userName, setUserName] = useState('Guest User');
+
+    useEffect(() => {
+        const currentUser = localStorage.getItem('currentUser');
+        if (currentUser) {
+            try {
+                const user = JSON.parse(currentUser);
+                setUserName(`${user.fname} ${user.lname}`);
+            } catch (e) {
+                setUserName('Guest User');
+            }
+        }
+    }, []);
+
     return(
         <nav className={styles.nav}>
             <Link to ="">
@@ -26,7 +41,7 @@ function Navbar({open1, setOpen1, open2, setOpen2}){
                 <button className={styles.drop} onClick={()=> setOpen2(!open2)}>
                     {!open2 && <ChevronDown color="#000000"/>}
                     {open2 && <ChevronUp color="#000000"/>}
-                    Guest User
+                    {userName}
                 </button>
                 <CircleUserRound color="#000000" size={65}/>
             </div>
