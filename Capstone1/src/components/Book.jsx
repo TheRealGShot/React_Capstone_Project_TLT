@@ -1,5 +1,6 @@
 import styles from '../styles/Book.module.css';
 import tree from '../assets/tree.png'
+import { Link } from 'react-router-dom';
 function Book(){
     return(
         <div className={styles.div1}>
@@ -8,7 +9,9 @@ function Book(){
                 <p className={styles.p}>
                     Book Title 
                 </p>
+                <Link to="/preview" className={styles.link}>
                 <button className={styles.button}>View More</button>
+                </Link>
             </div>
         </div>
     );

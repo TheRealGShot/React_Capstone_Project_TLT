@@ -13,6 +13,7 @@ import ReturnBook from './pages/ReturnBook.jsx'
 import Settings from './pages/Settings.jsx'
 import AddBook from './pages/AddBook.jsx'
 import Browse from './pages/Browse.jsx'
+import Preview from './pages/Preview.jsx'
 
 function App() {
   const [open1, setOpen1] = useState(false);
@@ -37,6 +38,7 @@ function App() {
           <Route path='/addBook' element={<AddBook/>}></Route>
           
           <Route path='/browse' element={<Browse/>}></Route>
+          <Route path='/preview' element={<Preview/>}></Route>
 
           <Route path='/settings' element={<Settings/>}></Route>
 
