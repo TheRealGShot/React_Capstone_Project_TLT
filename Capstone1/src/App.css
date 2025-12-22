@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 ;
   padding: 0;
-  color:black; /*changed*/
+  color:rgb(0, 0, 0); /*changed*/
 }
 .div{
   background-color:rgb(255, 255, 255);
@@ -14,11 +14,12 @@
 
 /* when dark theme is active, make the main app container also dark */
 html[data-theme='dark'] .div{
-  background-color: #000000;
+  background-color: #ffffff;
   color: #ffffff;
 }
 
 /* ensure root text color follows theme */
 html[data-theme='dark'] #root{
   color: #ffffff;
+  background-color: #000000;
 }

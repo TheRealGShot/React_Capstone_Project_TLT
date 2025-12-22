@@ -32,22 +32,6 @@ function Browse(){
                 {allBooks.map((b) => (
                     <Book key={b.id} book={b} />
                 ))}
-
-                <div className={styles.placeHolder}></div>
-                <div className={styles.div1}>
-                    <img className={`${styles.img} no-invert`} src={tree} alt="tree"/>
-                    <div className={styles.div2}>
-                     <p className={styles.p1}>
-                              Add Book
-                    </p>
-                    <Link to="/addbook" className={styles.link}>
-                    <button className={styles.button}>
-                        <Plus className={styles.plus} color="white"/>
-                    </button>
-                    </Link>
-                    </div>
-                </div>
-
             </div>
         </div>
     );
