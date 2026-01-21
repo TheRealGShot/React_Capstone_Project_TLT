@@ -1,9 +1,11 @@
 import styles from '../styles/pages/Preview.module.css';
 import { Link, useParams } from 'react-router-dom';
 import books from '../data/books';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext.jsx';
 
 function Preview(){
+    const { isDarkMode } = useContext(ThemeContext);
     const { id } = useParams();
     const bookId = Number(id);
     const [book, setBook] = useState(null);
@@ -28,11 +30,11 @@ function Preview(){
 
     if (!book) {
         return (
-            <div className={styles.desktop}>
-                <div className={styles.box}>
-                    <h2 className={styles.h1}>Book not found</h2>
+            <div className={`${styles.desktop} ${isDarkMode ? styles.darkMode : ''}`}>
+                <div className={`${styles.box} ${isDarkMode ? styles.darkMode : ''}`}>
+                    <h2 className={`${styles.h1} ${isDarkMode ? styles.darkMode : ''}`}>Book not found</h2>
                     <Link to="/browse" className={styles.link}>
-                      <button className={styles.button}>Back to Library</button>
+                      <button className={`${styles.button} ${isDarkMode ? styles.darkMode : ''}`}>Back to Library</button>
                     </Link>
                 </div>
             </div>
@@ -40,23 +42,23 @@ function Preview(){
     }
 
     return(
-        <div className={styles.desktop}>
-            <div className={styles.box}>
+        <div className={`${styles.desktop} ${isDarkMode ? styles.darkMode : ''}`}>
+            <div className={`${styles.box} ${isDarkMode ? styles.darkMode : ''}`}>
                 <div className={styles.flexor1}>
                     <div className={styles.flexor2}> 
-                        <h1 className={styles.h1}>{book.title}</h1>
-                        <h1 className={styles.h1}>By: {book.author}</h1>
-                        <h1 className={styles.h1}>Published: {book.publishDate}</h1>
+                        <h1 className={`${styles.h1} ${isDarkMode ? styles.darkMode : ''}`}>{book.title}</h1>
+                        <h1 className={`${styles.h1} ${isDarkMode ? styles.darkMode : ''}`}>By: {book.author}</h1>
+                        <h1 className={`${styles.h1} ${isDarkMode ? styles.darkMode : ''}`}>Published: {book.publishDate}</h1>
                     </div>
                     <div className={styles.flexor2}>
-                    <p className={styles.p}>Description:</p>
+                    <p className={`${styles.p} ${isDarkMode ? styles.darkMode : ''}`}>Description:</p>
                         <div className={styles.flexor3}>
-                            <p className={styles.p}>{book.description}</p>
+                            <p className={`${styles.p} ${isDarkMode ? styles.darkMode : ''}`}>{book.description}</p>
                         </div>
                     </div>
                 </div>
                 <Link to = {`/borrow/${book.id}`} className={styles.link}>
-                <button className={styles.button}>
+                <button className={`${styles.button} ${isDarkMode ? styles.darkMode : ''}`}>
                     Borrow Now!
                 </button>
                 </Link>

@@ -9,6 +9,9 @@
     width:100vw;
     height:900px;
 }
+.desktop.darkMode {
+    color: white;
+}
 .box{
     background-color:white;
     box-shadow: 0px 0px 18px #D9D9D9;
@@ -19,6 +22,10 @@
     justify-content:center;
     align-items:center;
     flex-direction: column;
+}
+.box.darkMode {
+    background-color: #1a1a1a;
+    box-shadow: 0px 0px 18px #555555;
 }
 .button{
     font-size:30px;
@@ -34,12 +41,17 @@
 .p{
     font-size:20px;
 }
+.p.darkMode {
+    color: white;
+}
 .h1{
     font-size:30px;
 }
+.h1.darkMode {
+    color: white;
+}
 .flexor1{
     display:flex;
-
     flex-wrap:wrap;
     width:600px;
     height:600px;

@@ -12,14 +12,24 @@
   display:flex;
 }
 
-/* when dark theme is active, make the main app container also dark */
-html[data-theme='dark'] .div{
+/* Light mode - default */
+.light-mode {
   background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode .div {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark mode */
+.dark-mode {
+  background-color: #000000;
   color: #ffffff;
 }
 
-/* ensure root text color follows theme */
-html[data-theme='dark'] #root{
-  color: #ffffff;
+.dark-mode .div {
   background-color: #000000;
+  color: #ffffff;
 }

@@ -5,6 +5,7 @@
     height:100px;
     width:100%;
     position:absolute;
+    top: 0;
     border-bottom: 4px solid #415B41;
     
     display:flex;
@@ -14,13 +15,25 @@
     font-family:Andada Pro;
     font-size:30px;
 }
+.navDark {
+    color: white;
+    background-color: #1a1a1a;
+    border-bottom-color: #6a9a6a;
+}
 .button{
     background-color:white;
+}
+.buttonDark {
+    background-color: #1a1a1a;
 }
 .drop{
     color:black;
     font-size:30px;
     background-color:white;
+}
+.dropDark {
+    color: white;
+    background-color: #1a1a1a;
 }
 .div1{
     display:flex;
@@ -37,4 +50,10 @@
 .logo{
     width:100px;
     height:100px;
+}
+.p {
+    color: black;
+}
+.pDark {
+    color: white;
 }

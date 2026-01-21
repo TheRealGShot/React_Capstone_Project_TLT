@@ -1,8 +1,10 @@
 import styles from '../styles/pages/AddBook.module.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../context/ThemeContext.jsx';
 
 function AddBook(){
+	const { isDarkMode } = useContext(ThemeContext);
 	const [formData, setFormData] = useState({
 		title: '',
 		author: '',
@@ -71,38 +73,38 @@ function AddBook(){
 	};
 
 	return(
-        <div className={styles.desktop}>
-			<h1 className={styles.h1}>Want To Add A Book?</h1>
-			<div className={styles.box}>
-				<form className={styles.form} onSubmit={handleAddBook}>
+        <div className={`${styles.desktop} ${isDarkMode ? styles.darkMode : ''}`}>
+			<h1 className={`${styles.h1} ${isDarkMode ? styles.darkMode : ''}`}>Want To Add A Book?</h1>
+			<div className={`${styles.box} ${isDarkMode ? styles.darkMode : ''}`}>
+				<form className={`${styles.form} ${isDarkMode ? styles.darkMode : ''}`} onSubmit={handleAddBook}>
 					<div className={styles.inputBox}>
 					<label>Book Title</label> 
-						<input type="text" name="title" placeholder='Enter Book Title' className={styles.input} 
+						<input type="text" name="title" placeholder='Enter Book Title' className={`${styles.input} ${isDarkMode ? styles.darkMode : ''}`}
 							value={formData.title} onChange={handleChange}
 					/> <br/>
 					</div>
 					<div className={styles.inputBox}>
 					<label>Author</label> 
-						<input type="text" name="author" placeholder='Enter Author Name' className={styles.input} 
+						<input type="text" name="author" placeholder='Enter Author Name' className={`${styles.input} ${isDarkMode ? styles.darkMode : ''}`}
 							value={formData.author} onChange={handleChange}
 					/> <br/>
 					</div>
 					<div className={styles.inputBox}>
 					<label>Date of Publish</label> 
-						<input type="date" name="publishDate" className={styles.input} 
+						<input type="date" name="publishDate" className={`${styles.input} ${isDarkMode ? styles.darkMode : ''}`}
 							value={formData.publishDate} onChange={handleChange}
 					/> <br/>
 					</div>
 					<div className={styles.inputBox}>
 					<label>Description</label> 
-						<input type="text" name="description" placeholder='Enter Description' className={styles.input} 
+						<input type="text" name="description" placeholder='Enter Description' className={`${styles.input} ${isDarkMode ? styles.darkMode : ''}`}
 							value={formData.description} onChange={handleChange}
 					/> <br/>
 					</div>
 					{error && <p style={{color: 'red', marginTop: '10px'}}>{error}</p>}
 				</form>
 				
-				<button className={styles.button} onClick={handleAddBook}>
+				<button className={`${styles.button} ${isDarkMode ? styles.darkMode : ''}`} onClick={handleAddBook}>
 					Add Book
 				</button>
 			</div>

@@ -9,7 +9,6 @@
     width:250px;
     position:absolute;
     right:0;
-    margin-top:100px;
     margin-right:80px;
     border-top: 4px solid #D5DDCD;
     border-bottom: 4px solid #415B41;
@@ -19,9 +18,19 @@
     font-size:30px;
     z-index:100;
 }
+.divDark {
+    background-color: #1a1a1a;
+    border-top-color: #4a5a4a;
+    border-bottom-color: #6a9a6a;
+    border-left-color: #6a9a6a;
+    border-right-color: #6a9a6a;
+}
 .p{
     text-decoration:none;
     color:black;
+}
+.pDark {
+    color: white;
 }
 .box{
     display: flex;

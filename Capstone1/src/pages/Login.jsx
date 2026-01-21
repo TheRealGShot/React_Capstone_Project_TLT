@@ -1,9 +1,11 @@
 import styles from '../styles/pages/Login.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import openBook from '../assets/openBook.png'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext.jsx';
 
 function Login(){
+	const { isDarkMode } = useContext(ThemeContext);
 	const [loginData, setLoginData] = useState({
 		email: '',
 		password: ''
@@ -48,17 +50,17 @@ function Login(){
 	};
 
 	return (
-		<div className={styles.desktop}>
-			<h1 className={styles.h1}>Welcome to The Learning Tree Library!</h1>
-			<div className={styles.box}>
+		<div className={`${styles.desktop} ${isDarkMode ? styles.darkMode : ''}`}>
+			<h1 className={`${styles.h1} ${isDarkMode ? styles.darkMode : ''}`}>Welcome to The Learning Tree Library!</h1>
+			<div className={`${styles.box} ${isDarkMode ? styles.darkMode : ''}`}>
 				<img className={`${styles.image} no-invert`} src={openBook} alt="Open Book"/>
-                <form className={styles.form} onSubmit={handleLogin}>
+                <form className={`${styles.form} ${isDarkMode ? styles.darkMode : ''}`} onSubmit={handleLogin}>
 					<label>Email</label> 
 					<input 
 						type="text" 
 						name="email" 
 						placeholder='Enter Email' 
-						className={styles.input}
+						className={`${styles.input} ${isDarkMode ? styles.darkMode : ''}`}
 						value={loginData.email}
 						onChange={handleChange}
 					/> <br/>
@@ -67,17 +69,16 @@ function Login(){
 						type="password" 
 						name="password" 
 						placeholder='Enter Password' 
-						className={styles.input}
+						className={`${styles.input} ${isDarkMode ? styles.darkMode : ''}`}
 						value={loginData.password}
 						onChange={handleChange}
 					/> <br/>
 					{error && <p style={{color: 'red', marginBottom: '60px', marginTop:'10px'}}>{error}</p>}
             	</form>
-				<p className={styles.p}>Don't have an account? 
-					<Link to='/signup'>Sign Up</Link>
-				</p>
-				<button className={styles.button} onClick={handleLogin}>
-					Login
+			<p className={`${styles.p} ${isDarkMode ? styles.darkMode : ''}`}>Don't have an account? 
+				<Link to='/signup'>Sign Up</Link>
+			</p>
+			<button className={`${styles.button} ${isDarkMode ? styles.darkMode : ''}`} onClick={handleLogin}>
 				</button>
             </div>
 

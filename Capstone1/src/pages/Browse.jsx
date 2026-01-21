@@ -4,9 +4,11 @@ import tree from '../assets/tree.png'
 import { Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import books from '../data/books';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext.jsx';
 
 function Browse(){
+    const { isDarkMode } = useContext(ThemeContext);
     const [allBooks, setAllBooks] = useState(books);
 
     useEffect(() => {
@@ -26,8 +28,8 @@ function Browse(){
     }, []);
 
     return(
-        <div className={styles.desktop}>
-            <h1 className={styles.h1}>Library</h1>
+        <div className={`${styles.desktop} ${isDarkMode ? styles.darkMode : ''}`}>
+            <h1 className={`${styles.h1} ${isDarkMode ? styles.darkMode : ''}`}>Library</h1>
             <div className={styles.div}>
                 {allBooks.map((b) => (
                     <Book key={b.id} book={b} />

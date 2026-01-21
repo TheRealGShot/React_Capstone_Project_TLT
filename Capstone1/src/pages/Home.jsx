@@ -1,10 +1,15 @@
+import { useContext } from 'react';
 import bigTree from '../assets/bigTree.png'
 import styles from '../styles/pages/Home.module.css';
 import { Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../context/ThemeContext.jsx';
+
 function Home(){
+    const { isDarkMode } = useContext(ThemeContext);
+    
     return(
-        <div className={styles.desktop}>
+        <div className={`${styles.desktop} ${isDarkMode ? styles.darkMode : ''}`}>
             <div className={styles.left}>
                 <h1 className={styles.h1}>Welcome To The Tree</h1>
                 <Link to="/browse">
@@ -16,7 +21,7 @@ function Home(){
             </div>
             <div className={styles.right}>
                 <img className={`${styles.bigTree} no-invert`} src={bigTree}/>
-                <div className={styles.box}>
+                <div className={`${styles.box} ${isDarkMode ? styles.darkMode : ''}`}>
                     <h2 className={styles.h2}>The Learning Tree Library</h2>
                     <p className={styles.p}>
                         Over 100 Books to Borrow From! 

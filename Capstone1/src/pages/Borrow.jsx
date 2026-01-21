@@ -1,9 +1,11 @@
 import styles from '../styles/pages/Borrow.module.css';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import books from '../data/books';
+import { ThemeContext } from '../context/ThemeContext.jsx';
 
 function Borrow() {
+    const { isDarkMode } = useContext(ThemeContext);
     const { id } = useParams();
     const navigate = useNavigate();
     const bookId = Number(id);
@@ -47,11 +49,11 @@ function Borrow() {
 
     if (!book) {
         return (
-            <div className={styles.desktop}>
-                <div className={styles.box}>
-                    <h2 className={styles.h1}>Book not found</h2>
+            <div className={`${styles.desktop} ${isDarkMode ? styles.darkMode : ''}`}>
+                <div className={`${styles.box} ${isDarkMode ? styles.darkMode : ''}`}>
+                    <h2 className={`${styles.h1} ${isDarkMode ? styles.darkMode : ''}`}>Book not found</h2>
                     <Link to="/browse" className={styles.link}>
-                      <button className={styles.button}>Back to Library</button>
+                      <button className={`${styles.button} ${isDarkMode ? styles.darkMode : ''}`}>Back to Library</button>
                     </Link>
                 </div>
             </div>
@@ -80,24 +82,24 @@ function Borrow() {
     }
 
     return(
-        <div className={styles.desktop}>
-            <div className={styles.box}>
+        <div className={`${styles.desktop} ${isDarkMode ? styles.darkMode : ''}`}>
+            <div className={`${styles.box} ${isDarkMode ? styles.darkMode : ''}`}>
                 <div className={styles.flexor}>
-                    <div className={styles.box1}>
-                        <p className={styles.p}>Availibility: <span style={{color: isBorrowed ? 'red' : 'green', fontWeight:700}}>{isBorrowed ? 'Not Available' : 'Available'}</span></p>
+                    <div className={`${styles.box1} ${isDarkMode ? styles.darkMode : ''}`}>
+                        <p className={`${styles.p} ${isDarkMode ? styles.darkMode : ''}`}>Availibility: <span style={{color: isBorrowed ? 'red' : 'green', fontWeight:700}}>{isBorrowed ? 'Not Available' : 'Available'}</span></p>
                     </div>
-                        <form className={styles.form1} onSubmit={handleBorrow}>
+                        <form className={`${styles.form1} ${isDarkMode ? styles.darkMode : ''}`} onSubmit={handleBorrow}>
                             <label>Date of Borrow:</label> 
                                 <input 
                                     type="date" 
                                     name="date-of-borrow" 
                                     placeholder='Enter Date' 
-                                    className={styles.input}
+                                    className={`${styles.input} ${isDarkMode ? styles.darkMode : ''}`}
                                     value={borrowDate}
                                     onChange={(e) => setBorrowDate(e.target.value)}
                                 /> 
                                 <div style={{marginTop:12}}>
-                                  <button className={styles.button} type="submit" disabled={isBorrowed}>{isBorrowed ? 'Not Available' : 'Borrow'}</button>
+                                  <button className={`${styles.button} ${isDarkMode ? styles.darkMode : ''}`} type="submit" disabled={isBorrowed}>{isBorrowed ? 'Not Available' : 'Borrow'}</button>
                                 </div>
                         </form>
                 </div>
