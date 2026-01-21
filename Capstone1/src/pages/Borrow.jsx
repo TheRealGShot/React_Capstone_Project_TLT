@@ -16,7 +16,6 @@ function Borrow() {
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
-        // Find book from fake API or user-added books
         let foundBook = books.find((b) => b.id === bookId);
         if (!foundBook) {
             try {

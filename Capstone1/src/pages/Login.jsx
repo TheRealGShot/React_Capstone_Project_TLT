@@ -25,24 +25,17 @@ function Login(){
 	const handleLogin = (e) => {
 		e.preventDefault();
 
-		// Validate fields are filled
 		if (!loginData.email || !loginData.password) {
 			setError('Email and password are required');
 			return;
 		}
 
-		// Get users from localStorage
 		const users = JSON.parse(localStorage.getItem('users') || '[]');
-
-		// Find matching user
 		const user = users.find(u => u.email === loginData.email && u.password === loginData.password);
 
 		if (user) {
-			// Store logged in user
 			localStorage.setItem('currentUser', JSON.stringify(user));
-			// notify other components in the same tab
 			window.dispatchEvent(new Event('authChange'));
-			// Navigate to home
 			navigate('/');
 		} else {
 			setError('Invalid email or password');

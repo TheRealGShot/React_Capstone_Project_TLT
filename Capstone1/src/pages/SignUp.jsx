@@ -28,44 +28,37 @@ setError('');
 const handleSignUp = (e) => {
 e.preventDefault();
 
-// Validate all fields are filled
 if (!formData.fname || !formData.lname || !formData.email || !formData.confirmEmail || !formData.password || !formData.confirmPassword) {
 setError('All fields are required');
 return;
 }
 
-// Validate email has '@'
 if (!formData.email.includes('@')) {
 setError('Invalid email format');
 return;
 }
 
-// Validate emails match
 if (formData.email !== formData.confirmEmail) {
 setError('Emails do not match');
 return;
 }
 
-// Validate passwords match
 if (formData.password !== formData.confirmPassword) {
 setError('Passwords do not match');
 return;
 }
 
-// Validate password length
 if (formData.password.length < 6) {
 setError('Password must be at least 6 characters');
 return;
 }
 
-// Check if user already exists
 const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
 if (existingUsers.some(user => user.email === formData.email)) {
 setError('Email already registered');
 return;
 }
 
-// Create new user
 const newUser = {
 fname: formData.fname,
 lname: formData.lname,
@@ -73,11 +66,8 @@ email: formData.email,
 password: formData.password
 };
 
-// Store user in localStorage
 existingUsers.push(newUser);
 localStorage.setItem('users', JSON.stringify(existingUsers));
-console.log('User registered successfully:', newUser);
-console.log('All users:', existingUsers);
 
 // Navigate to login page
 navigate('/login');

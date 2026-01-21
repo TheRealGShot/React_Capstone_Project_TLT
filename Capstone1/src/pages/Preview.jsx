@@ -11,10 +11,8 @@ function Preview(){
     const [book, setBook] = useState(null);
 
     useEffect(() => {
-        // First check fake API books
         let foundBook = books.find((b) => b.id === bookId);
         
-        // If not found, check user-added books
         if (!foundBook) {
             try {
                 const cu = JSON.parse(localStorage.getItem('currentUser')) || null;

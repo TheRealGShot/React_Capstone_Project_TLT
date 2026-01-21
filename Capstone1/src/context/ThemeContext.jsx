@@ -14,7 +14,6 @@ export function ThemeProvider({ children }) {
     }
   }
 
-  // Load theme from localStorage on mount
   useEffect(() => {
     const userKey = getUserKey();
     const prefs = JSON.parse(localStorage.getItem('themePreferences') || '{}');
@@ -22,7 +21,6 @@ export function ThemeProvider({ children }) {
     setIsDarkMode(savedTheme === 'dark');
   }, []);
 
-  // Listen for auth changes
   useEffect(() => {
     const onAuth = () => {
       const userKey = getUserKey();

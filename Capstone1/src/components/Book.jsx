@@ -1,6 +1,6 @@
 import styles from '../styles/Book.module.css';
 import { useContext } from 'react';
-import tree from '../assets/tree.png'
+import bookCover from '../assets/bookCover.png'
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext.jsx';
 
@@ -9,7 +9,7 @@ function Book({ book }){
     
     return(
         <div className={styles.div1}>
-            <img className={`${styles.img} no-invert`} src={tree} alt={book?.title || "book"}/>
+            <img className={`${styles.img} no-invert`} src={bookCover} alt={book?.title || "book"}/>
             <div className={`${styles.div2} ${isDarkMode ? styles.darkMode : ''}`}>
                 <p className={styles.p}>
                     {book?.title || 'Book Title'}

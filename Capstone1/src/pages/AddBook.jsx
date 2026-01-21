@@ -32,7 +32,6 @@ function AddBook(){
 	const handleAddBook = (e) => {
 		e.preventDefault();
 
-		// Validate all fields are filled
 		if (!formData.title || !formData.author || !formData.publishDate || !formData.description) {
 			setError('All fields are required');
 			return;
@@ -45,15 +44,10 @@ function AddBook(){
 			return;
 		}
 
-		const userKey = cu.email;
-		const userAddedBooks = JSON.parse(localStorage.getItem('userAddedBooks') || '{}');
+		const globalAddedBooks = JSON.parse(localStorage.getItem('globalAddedBooks') || '[]');
 		
-		if (!userAddedBooks[userKey]) {
-			userAddedBooks[userKey] = [];
-		}
-
-		// Generate a unique ID for the added book (base 1000 + index)
-		const nextId = 1000 + userAddedBooks[userKey].length;
+		const maxId = globalAddedBooks.length > 0 ? Math.max(...globalAddedBooks.map(b => b.id)) : 999;
+		const nextId = maxId + 1;
 
 		const newBook = {
 			id: nextId,
@@ -64,10 +58,9 @@ function AddBook(){
 			isUserAdded: true
 		};
 
-		userAddedBooks[userKey].push(newBook);
-		localStorage.setItem('userAddedBooks', JSON.stringify(userAddedBooks));
+		globalAddedBooks.push(newBook);
+		localStorage.setItem('globalAddedBooks', JSON.stringify(globalAddedBooks));
 
-		// Reset form and navigate to browse
 		setFormData({ title: '', author: '', publishDate: '', description: '' });
 		navigate('/browse');
 	};

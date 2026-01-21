@@ -4,6 +4,9 @@
     height:500px;
     border-radius:150px;
     font-family:Andada Pro;
+    display:flex;
+    justify-content: center;
+    align-items: start;
 }
 .div2{
     width:400px;
@@ -22,9 +25,9 @@
     box-shadow: 0px 0px 10px #555555;
 }
 .img{
-    height:420px;
-    width:400px;
-    position:absolute;
+    height:350px;
+    width:320px;
+    margin-top:50px;
 }
 .p{
     font-size: 30px;

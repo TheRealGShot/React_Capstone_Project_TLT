@@ -42,7 +42,6 @@ function ReturnBook(){
             return;
         }
 
-        // find book by exact title (case-sensitive as requested)
         const book = books.find(b => b.title === title);
         if (!book) { alert('No book found with that exact title'); return; }
 
@@ -52,7 +51,6 @@ function ReturnBook(){
             return;
         }
 
-        // check borrowedBooks for this user
         const userKey = getUserKey();
         const data = JSON.parse(localStorage.getItem('borrowedBooks') || '{}');
         if (!userKey || !data[userKey] || !data[userKey][book.id]) {
@@ -60,9 +58,7 @@ function ReturnBook(){
             return;
         }
 
-        // remove the borrowed entry for this user and book
         delete data[userKey][book.id];
-        // clean up empty object
         if (Object.keys(data[userKey]).length === 0) delete data[userKey];
         localStorage.setItem('borrowedBooks', JSON.stringify(data));
 
